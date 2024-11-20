@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">  
+    <head>
+        <link rel="stylesheet" href="../CSS/CIB_CSS.css">
+        <script src="https://kit.fontawesome.com/9065e3a5e6.js" crossorigin="anonymous"></script>
+        <link rel="icon" type="image/x-icon" href="../img/DWK_Logo_Circular.png">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="../js/accountHandling.js"></script>
+        <title> CIB - Group7 </title>
+    </head>
+    
+    <body>
+        <header>
+            <img src="../img/DWK_Logo_Circular.png" style= "height:88px; width:100px; float: left;">
+            <h1> DWK - Incident Report System </h1>
+        </header>    
+        <nav>
+            <a href="cib_home.html"><i class="fa-solid fa-house"></i> &nbsp;  Home </a>
+            <a id= "incidentpage" href="#"> <i class="fa-solid fa-note-sticky"></i> &nbsp; Incidents Area </a>
+            <a id= "" href="cib_incidentsreported.html"> <i class="fa-solid fa-file"></i> &nbsp; Reported Incidents </a>
+            <a id= "" href="cib_chat.html"> <i class="fa-solid fa-comment"></i> &nbsp; Chat </a>
+            <section class="navright">
+                <a href="cib_signindetails.html" title= "Sign in Details"> <i class="fa-solid fa-user"></i> </a> 
+            </section>
+        </nav>
+        <section class="main" style="text-align: left; padding: 20px 60px 620px 40px;">
+            <section class= "accessibility" >
+                <a id="volume" onclick="accessibilityman()" href="" title= "Live Speech"><i class="fa-solid fa-volume-high"></i></a>
+                &emsp;
+                <a id="largetext" onclick="accessibilityman()" href="" title= "Larger Text"><i class="fa-solid fa-a"></i></a>
+                &nbsp;
+                &nbsp;
+            </section>
+        <form>
+            <h2>Already Reported Incidents</h2>
+            <label for="numberofincidents"> Number of Incidents Reported: </label>
+            <input type="text" id="numberofincidents" name="numberofincidents" placeholder="4" style="width: 2.5%; background-color: white; padding: 10px;" disabled>
+            <br>
+            <br>
+            <br>
+            <a href="cib_incidents_db.html" target="_blank">View Incidents in Detail - View HTML ver. in a new Tab </a>
+            <br>
+            <br>
+            <a href="../incidents/incident_data_excel.xlsx" target="_blank" >View Incidents in Detail - Download Excel ver.</a>
+            <p id="1"> </p>
+        </form>
+        </section>
+        <script>
+            setIncidentPages();
+            document.getElementById("1").textContent = "First Issue: " + sessionStorage.getItem("storedIssue1");
+        </script>
+        <footer>
+            <p><i class="fa-solid fa-copyright"></i> All Rights Reserved </p>
+        </footer>
+    </body>
+</html>

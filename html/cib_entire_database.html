@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='Cp1252'>
+  <link rel="icon" type="image/x-icon" href="../img/DWK_Logo_Circular.png">
+  <title>CIB - Group7</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <style>
+  * { 
+    margin: 0; 
+    padding: 0; 
+  }
+  body { 
+    font: 14px/1.4 Palatino, Serif; 
+  }
+  
+  /* 
+  Generic Styling, for Desktops/Laptops 
+  */
+  table { 
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+  /* Zebra striping */
+  tr:nth-of-type(odd) { 
+    background: #eee; 
+  }
+  th { 
+    background: #333; 
+    color: white; 
+    font-weight: bold; 
+  }
+  td, th { 
+    padding: 6px; 
+    border: 1px solid #9B9B9B; 
+    text-align: left; 
+  }
+  @media 
+  only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px)  {
+    table, thead, tbody, th, td, tr { display: block; }
+    thead tr { position: absolute;top: -9999px;left: -9999px;}
+    tr { border: 1px solid #9B9B9B; }
+    td { border: none;border-bottom: 1px solid #9B9B9B; position: relative;padding-left: 50%; }
+    
+    td:before { position: absolute;top: 6px;left: 6px;width: 45%; padding-right: 10px; white-space: nowrap;}
+    
+    /*
+    Label the data
+    */
+td:nth-of-type(1):before { content: "NAME"; }
+td:nth-of-type(2):before { content: "INCIDENT_ID"; }
+  }
+  
+  /* Smartphones (portrait and landscape) ----------- */
+  @media only screen
+  and (min-device-width : 320px)
+  and (max-device-width : 480px) {
+    body { 
+      padding: 0; 
+      margin: 0; 
+      width: 320px; }
+    }
+  
+  /* iPads (portrait and landscape) ----------- */
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    body { 
+      width: 495px; 
+    }
+  }
+  
+  </style>
+  <!--<![endif]-->
+<script type="text/javascript">
+
+function search(){
+  
+  var s = document.getElementById('search').value;
+
+  rows = document.getElementById('data').getElementsByTagName('TR');
+  for(var i=0;i<rows.length;i++){
+    if ( rows[i].textContent.indexOf(s)>0  || s.length==0 ) {
+	  rows[i].style.display ='';
+    } else {
+      rows[i].style.display ='none';
+    }
+  }
+}
+
+
+var timer;
+function delayedSearch() {
+	clearTimeout(timer);
+	console.log('delay-ing')
+    timer = setTimeout(function () {
+		console.log('delay-running')
+		search();
+    }, 500);
+  }</script>
+</head>
+
+<body>
+<div><input type="text" size="30" maxlength="1000" value="" id="search" onkeyup="delayedSearch();" /><input type="button" value="Go" onclick="lsearch();"/> </div>
+<table><thead><tr>	<th>NAME</th>
+	<th>INCIDENT_ID</th>
+</tr></thead>
+<tbody id="data">
+
+	<tr>
+<td>Laptop 1</td>
+<td align="right">4</td>
+	</tr>
+	<tr>
+<td>Laptop 4</td>
+<td align="right">4</td>
+	</tr>
+	<tr>
+<td>Server 1</td>
+<td align="right">2</td>
+	</tr>
+</tbody></table><!-- SQL:
+select NAME NAME, INCIDENT_ID INCIDENT_ID from (select * from "S5607012"."AFFECTED_ASSETS_LNK")--></body></html>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='Cp1252'>
+  
+  <title>Result Data</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <style>
+  * { 
+    margin: 0; 
+    padding: 0; 
+  }
+  body { 
+    font: 14px/1.4 Palatino, Serif; 
+  }
+  
+  /* 
+  Generic Styling, for Desktops/Laptops 
+  */
+  table { 
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+  /* Zebra striping */
+  tr:nth-of-type(odd) { 
+    background: #eee; 
+  }
+  th { 
+    background: #333; 
+    color: white; 
+    font-weight: bold; 
+  }
+  td, th { 
+    padding: 6px; 
+    border: 1px solid #9B9B9B; 
+    text-align: left; 
+  }
+  @media 
+  only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px)  {
+    table, thead, tbody, th, td, tr { display: block; }
+    thead tr { position: absolute;top: -9999px;left: -9999px;}
+    tr { border: 1px solid #9B9B9B; }
+    td { border: none;border-bottom: 1px solid #9B9B9B; position: relative;padding-left: 50%; }
+    
+    td:before { position: absolute;top: 6px;left: 6px;width: 45%; padding-right: 10px; white-space: nowrap;}
+    
+    /*
+    Label the data
+    */
+td:nth-of-type(1):before { content: "EMPLOYEE_ID"; }
+td:nth-of-type(2):before { content: "INCIDENT_ID"; }
+  }
+  
+  /* Smartphones (portrait and landscape) ----------- */
+  @media only screen
+  and (min-device-width : 320px)
+  and (max-device-width : 480px) {
+    body { 
+      padding: 0; 
+      margin: 0; 
+      width: 320px; }
+    }
+  
+  /* iPads (portrait and landscape) ----------- */
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    body { 
+      width: 495px; 
+    }
+  }
+  
+  </style>
+  <!--<![endif]-->
+<script type="text/javascript">
+
+function search(){
+  
+  var s = document.getElementById('search').value;
+
+  rows = document.getElementById('data').getElementsByTagName('TR');
+  for(var i=0;i<rows.length;i++){
+    if ( rows[i].textContent.indexOf(s)>0  || s.length==0 ) {
+	  rows[i].style.display ='';
+    } else {
+      rows[i].style.display ='none';
+    }
+  }
+}
+
+
+var timer;
+function delayedSearch() {
+	clearTimeout(timer);
+	console.log('delay-ing')
+    timer = setTimeout(function () {
+		console.log('delay-running')
+		search();
+    }, 500);
+  }</script>
+</head>
+
+<body>
+<div><input type="text" size="30" maxlength="1000" value="" id="search" onkeyup="delayedSearch();" /><input type="button" value="Go" onclick="lsearch();"/> </div>
+<table><thead><tr>	<th>EMPLOYEE_ID</th>
+	<th>INCIDENT_ID</th>
+</tr></thead>
+<tbody id="data">
+
+	<tr>
+<td align="right">3</td>
+<td align="right">1</td>
+	</tr>
+	<tr>
+<td align="right">4</td>
+<td align="right">1</td>
+	</tr>
+	<tr>
+<td align="right">5</td>
+<td align="right">2</td>
+	</tr>
+	<tr>
+<td align="right">5</td>
+<td align="right">3</td>
+	</tr>
+	<tr>
+<td align="right">6</td>
+<td align="right">2</td>
+	</tr>
+	<tr>
+<td align="right">6</td>
+<td align="right">3</td>
+	</tr>
+	<tr>
+<td align="right">6</td>
+<td align="right">4</td>
+	</tr>
+</tbody></table><!-- SQL:
+select EMPLOYEE_ID EMPLOYEE_ID, INCIDENT_ID INCIDENT_ID from (select * from "S5607012"."AFFECTED_EMPLOYEES_LNK")--></body></html>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='Cp1252'>
+  
+  <title>Result Data</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <style>
+  * { 
+    margin: 0; 
+    padding: 0; 
+  }
+  body { 
+    font: 14px/1.4 Palatino, Serif; 
+  }
+  
+  /* 
+  Generic Styling, for Desktops/Laptops 
+  */
+  table { 
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+  /* Zebra striping */
+  tr:nth-of-type(odd) { 
+    background: #eee; 
+  }
+  th { 
+    background: #333; 
+    color: white; 
+    font-weight: bold; 
+  }
+  td, th { 
+    padding: 6px; 
+    border: 1px solid #9B9B9B; 
+    text-align: left; 
+  }
+  @media 
+  only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px)  {
+    table, thead, tbody, th, td, tr { display: block; }
+    thead tr { position: absolute;top: -9999px;left: -9999px;}
+    tr { border: 1px solid #9B9B9B; }
+    td { border: none;border-bottom: 1px solid #9B9B9B; position: relative;padding-left: 50%; }
+    
+    td:before { position: absolute;top: 6px;left: 6px;width: 45%; padding-right: 10px; white-space: nowrap;}
+    
+    /*
+    Label the data
+    */
+td:nth-of-type(1):before { content: "ID"; }
+td:nth-of-type(2):before { content: "TASK_ID"; }
+td:nth-of-type(3):before { content: "MESSAGE"; }
+td:nth-of-type(4):before { content: "EMPLOYEE_ID"; }
+td:nth-of-type(5):before { content: "EMPLOYEE_NAME"; }
+td:nth-of-type(6):before { content: "POSTED_AT"; }
+  }
+  
+  /* Smartphones (portrait and landscape) ----------- */
+  @media only screen
+  and (min-device-width : 320px)
+  and (max-device-width : 480px) {
+    body { 
+      padding: 0; 
+      margin: 0; 
+      width: 320px; }
+    }
+  
+  /* iPads (portrait and landscape) ----------- */
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    body { 
+      width: 495px; 
+    }
+  }
+  
+  </style>
+  <!--<![endif]-->
+<script type="text/javascript">
+
+function search(){
+  
+  var s = document.getElementById('search').value;
+
+  rows = document.getElementById('data').getElementsByTagName('TR');
+  for(var i=0;i<rows.length;i++){
+    if ( rows[i].textContent.indexOf(s)>0  || s.length==0 ) {
+	  rows[i].style.display ='';
+    } else {
+      rows[i].style.display ='none';
+    }
+  }
+}
+
+
+var timer;
+function delayedSearch() {
+	clearTimeout(timer);
+	console.log('delay-ing')
+    timer = setTimeout(function () {
+		console.log('delay-running')
+		search();
+    }, 500);
+  }</script>
+</head>
+
+<body>
+<div><input type="text" size="30" maxlength="1000" value="" id="search" onkeyup="delayedSearch();" /><input type="button" value="Go" onclick="lsearch();"/> </div>
+<table><thead><tr>	<th>ID</th>
+	<th>TASK_ID</th>
+	<th>MESSAGE</th>
+	<th>EMPLOYEE_ID</th>
+	<th>EMPLOYEE_NAME</th>
+	<th>POSTED_AT</th>
+</tr></thead>
+<tbody id="data">
+
+	<tr>
+<td align="right">1</td>
+<td align="right">1</td>
+<td>Chat message content</td>
+<td align="right">2</td>
+<td>Problem Manager 1</td>
+<td>10-MAY-24</td>
+	</tr>
+	<tr>
+<td align="right">2</td>
+<td align="right">1</td>
+<td>Chat message content</td>
+<td align="right">1</td>
+<td>Major Incident Manager</td>
+<td>10-MAY-24</td>
+	</tr>
+	<tr>
+<td align="right">3</td>
+<td align="right">2</td>
+<td>Chat message content</td>
+<td align="right">3</td>
+<td>Problem Manager 2</td>
+<td>08-MAY-24</td>
+	</tr>
+	<tr>
+<td align="right">4</td>
+<td align="right">3</td>
+<td>Chat message content</td>
+<td align="right">5</td>
+<td>Business Member 1</td>
+<td>15-MAY-24</td>
+	</tr>
+	<tr>
+<td align="right">5</td>
+<td align="right">3</td>
+<td>Chat message content</td>
+<td align="right">2</td>
+<td>Problem Manager 1</td>
+<td>15-MAY-24</td>
+	</tr>
+	<tr>
+<td align="right">6</td>
+<td align="right">3</td>
+<td>Chat message content</td>
+<td align="right">2</td>
+<td>Problem Manager 1</td>
+<td>15-MAY-24</td>
+	</tr>
+	<tr>
+<td align="right">7</td>
+<td align="right">3</td>
+<td>Chat message content</td>
+<td align="right">5</td>
+<td>Business Member 1</td>
+<td>15-MAY-24</td>
+	</tr>
+</tbody></table><!-- SQL:
+select ID ID, TASK_ID TASK_ID, MESSAGE MESSAGE, EMPLOYEE_ID EMPLOYEE_ID, EMPLOYEE_NAME EMPLOYEE_NAME, POSTED_AT POSTED_AT from (select * from "S5607012"."CHAT_MESSAGES")--></body></html>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='Cp1252'>
+  
+  <title>Result Data</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <style>
+  * { 
+    margin: 0; 
+    padding: 0; 
+  }
+  body { 
+    font: 14px/1.4 Palatino, Serif; 
+  }
+  
+  /* 
+  Generic Styling, for Desktops/Laptops 
+  */
+  table { 
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+  /* Zebra striping */
+  tr:nth-of-type(odd) { 
+    background: #eee; 
+  }
+  th { 
+    background: #333; 
+    color: white; 
+    font-weight: bold; 
+  }
+  td, th { 
+    padding: 6px; 
+    border: 1px solid #9B9B9B; 
+    text-align: left; 
+  }
+  @media 
+  only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px)  {
+    table, thead, tbody, th, td, tr { display: block; }
+    thead tr { position: absolute;top: -9999px;left: -9999px;}
+    tr { border: 1px solid #9B9B9B; }
+    td { border: none;border-bottom: 1px solid #9B9B9B; position: relative;padding-left: 50%; }
+    
+    td:before { position: absolute;top: 6px;left: 6px;width: 45%; padding-right: 10px; white-space: nowrap;}
+    
+    /*
+    Label the data
+    */
+td:nth-of-type(1):before { content: "ID"; }
+td:nth-of-type(2):before { content: "EMPLOYEE_ID"; }
+td:nth-of-type(3):before { content: "MESSAGE"; }
+td:nth-of-type(4):before { content: "POSTED_AT"; }
+td:nth-of-type(5):before { content: "INCIDENT_ID"; }
+  }
+  
+  /* Smartphones (portrait and landscape) ----------- */
+  @media only screen
+  and (min-device-width : 320px)
+  and (max-device-width : 480px) {
+    body { 
+      padding: 0; 
+      margin: 0; 
+      width: 320px; }
+    }
+  
+  /* iPads (portrait and landscape) ----------- */
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    body { 
+      width: 495px; 
+    }
+  }
+  
+  </style>
+  <!--<![endif]-->
+<script type="text/javascript">
+
+function search(){
+  
+  var s = document.getElementById('search').value;
+
+  rows = document.getElementById('data').getElementsByTagName('TR');
+  for(var i=0;i<rows.length;i++){
+    if ( rows[i].textContent.indexOf(s)>0  || s.length==0 ) {
+	  rows[i].style.display ='';
+    } else {
+      rows[i].style.display ='none';
+    }
+  }
+}
+
+
+var timer;
+function delayedSearch() {
+	clearTimeout(timer);
+	console.log('delay-ing')
+    timer = setTimeout(function () {
+		console.log('delay-running')
+		search();
+    }, 500);
+  }</script>
+</head>
+
+<body>
+<div><input type="text" size="30" maxlength="1000" value="" id="search" onkeyup="delayedSearch();" /><input type="button" value="Go" onclick="lsearch();"/> </div>
+<table><thead><tr>	<th>ID</th>
+	<th>EMPLOYEE_ID</th>
+	<th>MESSAGE</th>
+	<th>POSTED_AT</th>
+	<th>INCIDENT_ID</th>
+</tr></thead>
+<tbody id="data">
+
+	<tr>
+<td align="right">1</td>
+<td align="right">1</td>
+<td>Login system issues, some users may be unable to log on, please wait for further updates.</td>
+<td>10-MAY-24</td>
+<td align="right">1</td>
+	</tr>
+	<tr>
+<td align="right">2</td>
+<td align="right">1</td>
+<td>Website is down, access to some or all services might be affected.</td>
+<td>08-MAY-24</td>
+<td align="right">2</td>
+	</tr>
+	<tr>
+<td align="right">3</td>
+<td align="right">1</td>
+<td>Website issues have been resolved.</td>
+<td>08-MAY-24</td>
+<td align="right">2</td>
+	</tr>
+	<tr>
+<td align="right">4</td>
+<td align="right">1</td>
+<td>Issues with payment options, some payment methods may fail to go through.</td>
+<td>12-MAY-24</td>
+<td align="right">3</td>
+	</tr>
+	<tr>
+<td align="right">5</td>
+<td align="right">1</td>
+<td>Payment processors have been contacted to diagnose the issue, in the meantime, try using a different payment method.</td>
+<td>12-MAY-24</td>
+<td align="right">3</td>
+	</tr>
+</tbody></table><!-- SQL:
+select ID ID, EMPLOYEE_ID EMPLOYEE_ID, MESSAGE MESSAGE, POSTED_AT POSTED_AT, INCIDENT_ID INCIDENT_ID from (select * from "S5607012"."COMMUNICATION_UPDATES")--></body></html>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='Cp1252'>
+  
+  <title>Result Data</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <style>
+  * { 
+    margin: 0; 
+    padding: 0; 
+  }
+  body { 
+    font: 14px/1.4 Palatino, Serif; 
+  }
+  
+  /* 
+  Generic Styling, for Desktops/Laptops 
+  */
+  table { 
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+  /* Zebra striping */
+  tr:nth-of-type(odd) { 
+    background: #eee; 
+  }
+  th { 
+    background: #333; 
+    color: white; 
+    font-weight: bold; 
+  }
+  td, th { 
+    padding: 6px; 
+    border: 1px solid #9B9B9B; 
+    text-align: left; 
+  }
+  @media 
+  only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px)  {
+    table, thead, tbody, th, td, tr { display: block; }
+    thead tr { position: absolute;top: -9999px;left: -9999px;}
+    tr { border: 1px solid #9B9B9B; }
+    td { border: none;border-bottom: 1px solid #9B9B9B; position: relative;padding-left: 50%; }
+    
+    td:before { position: absolute;top: 6px;left: 6px;width: 45%; padding-right: 10px; white-space: nowrap;}
+    
+    /*
+    Label the data
+    */
+td:nth-of-type(1):before { content: "NAME"; }
+td:nth-of-type(2):before { content: "LOCATION"; }
+td:nth-of-type(3):before { content: "OWNER_ID"; }
+td:nth-of-type(4):before { content: "ASSIGNEE_ID"; }
+  }
+  
+  /* Smartphones (portrait and landscape) ----------- */
+  @media only screen
+  and (min-device-width : 320px)
+  and (max-device-width : 480px) {
+    body { 
+      padding: 0; 
+      margin: 0; 
+      width: 320px; }
+    }
+  
+  /* iPads (portrait and landscape) ----------- */
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    body { 
+      width: 495px; 
+    }
+  }
+  
+  </style>
+  <!--<![endif]-->
+<script type="text/javascript">
+
+function search(){
+  
+  var s = document.getElementById('search').value;
+
+  rows = document.getElementById('data').getElementsByTagName('TR');
+  for(var i=0;i<rows.length;i++){
+    if ( rows[i].textContent.indexOf(s)>0  || s.length==0 ) {
+	  rows[i].style.display ='';
+    } else {
+      rows[i].style.display ='none';
+    }
+  }
+}
+
+
+var timer;
+function delayedSearch() {
+	clearTimeout(timer);
+	console.log('delay-ing')
+    timer = setTimeout(function () {
+		console.log('delay-running')
+		search();
+    }, 500);
+  }</script>
+</head>
+
+<body>
+<div><input type="text" size="30" maxlength="1000" value="" id="search" onkeyup="delayedSearch();" /><input type="button" value="Go" onclick="lsearch();"/> </div>
+<table><thead><tr>	<th>NAME</th>
+	<th>LOCATION</th>
+	<th>OWNER_ID</th>
+	<th>ASSIGNEE_ID</th>
+</tr></thead>
+<tbody id="data">
+
+	<tr>
+<td>Laptop 1</td>
+<td>EU</td>
+<td align="right">2</td>
+<td align="right">5</td>
+	</tr>
+	<tr>
+<td>Laptop 2</td>
+<td>EU</td>
+<td align="right">2</td>
+<td align="right">6</td>
+	</tr>
+	<tr>
+<td>Laptop 3</td>
+<td>EU</td>
+<td align="right">2</td>
+<td align="right">&nbsp;</td>
+	</tr>
+	<tr>
+<td>Laptop 4</td>
+<td>EU</td>
+<td align="right">2</td>
+<td align="right">&nbsp;</td>
+	</tr>
+	<tr>
+<td>Server 1</td>
+<td>US</td>
+<td align="right">3</td>
+<td align="right">&nbsp;</td>
+	</tr>
+	<tr>
+<td>Server 2</td>
+<td>AU</td>
+<td align="right">3</td>
+<td align="right">&nbsp;</td>
+	</tr>
+	<tr>
+<td>Server 3</td>
+<td>EU</td>
+<td align="right">3</td>
+<td align="right">&nbsp;</td>
+	</tr>
+</tbody></table><!-- SQL:
+select NAME NAME, LOCATION LOCATION, OWNER_ID OWNER_ID, ASSIGNEE_ID ASSIGNEE_ID from (select * from "S5607012"."CONFIGURATION_ITEMS")--></body></html>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='Cp1252'>
+  
+  <title>Result Data</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <style>
+  * { 
+    margin: 0; 
+    padding: 0; 
+  }
+  body { 
+    font: 14px/1.4 Palatino, Serif; 
+  }
+  
+  /* 
+  Generic Styling, for Desktops/Laptops 
+  */
+  table { 
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+  /* Zebra striping */
+  tr:nth-of-type(odd) { 
+    background: #eee; 
+  }
+  th { 
+    background: #333; 
+    color: white; 
+    font-weight: bold; 
+  }
+  td, th { 
+    padding: 6px; 
+    border: 1px solid #9B9B9B; 
+    text-align: left; 
+  }
+  @media 
+  only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px)  {
+    table, thead, tbody, th, td, tr { display: block; }
+    thead tr { position: absolute;top: -9999px;left: -9999px;}
+    tr { border: 1px solid #9B9B9B; }
+    td { border: none;border-bottom: 1px solid #9B9B9B; position: relative;padding-left: 50%; }
+    
+    td:before { position: absolute;top: 6px;left: 6px;width: 45%; padding-right: 10px; white-space: nowrap;}
+    
+    /*
+    Label the data
+    */
+td:nth-of-type(1):before { content: "ID"; }
+td:nth-of-type(2):before { content: "GROUP_ID"; }
+td:nth-of-type(3):before { content: "NAME"; }
+td:nth-of-type(4):before { content: "LOCATION"; }
+  }
+  
+  /* Smartphones (portrait and landscape) ----------- */
+  @media only screen
+  and (min-device-width : 320px)
+  and (max-device-width : 480px) {
+    body { 
+      padding: 0; 
+      margin: 0; 
+      width: 320px; }
+    }
+  
+  /* iPads (portrait and landscape) ----------- */
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    body { 
+      width: 495px; 
+    }
+  }
+  
+  </style>
+  <!--<![endif]-->
+<script type="text/javascript">
+
+function search(){
+  
+  var s = document.getElementById('search').value;
+
+  rows = document.getElementById('data').getElementsByTagName('TR');
+  for(var i=0;i<rows.length;i++){
+    if ( rows[i].textContent.indexOf(s)>0  || s.length==0 ) {
+	  rows[i].style.display ='';
+    } else {
+      rows[i].style.display ='none';
+    }
+  }
+}
+
+
+var timer;
+function delayedSearch() {
+	clearTimeout(timer);
+	console.log('delay-ing')
+    timer = setTimeout(function () {
+		console.log('delay-running')
+		search();
+    }, 500);
+  }</script>
+</head>
+
+<body>
+<div><input type="text" size="30" maxlength="1000" value="" id="search" onkeyup="delayedSearch();" /><input type="button" value="Go" onclick="lsearch();"/> </div>
+<table><thead><tr>	<th>ID</th>
+	<th>GROUP_ID</th>
+	<th>NAME</th>
+	<th>LOCATION</th>
+</tr></thead>
+<tbody id="data">
+
+	<tr>
+<td align="right">1</td>
+<td align="right">1</td>
+<td>Major Incident Manager</td>
+<td>EU</td>
+	</tr>
+	<tr>
+<td align="right">2</td>
+<td align="right">2</td>
+<td>Problem Manager 1</td>
+<td>EU</td>
+	</tr>
+	<tr>
+<td align="right">3</td>
+<td align="right">2</td>
+<td>Problem Manager 2</td>
+<td>US</td>
+	</tr>
+	<tr>
+<td align="right">4</td>
+<td align="right">2</td>
+<td>Problem Manager 3</td>
+<td>US</td>
+	</tr>
+	<tr>
+<td align="right">5</td>
+<td align="right">3</td>
+<td>Business Member 1</td>
+<td>EU</td>
+	</tr>
+	<tr>
+<td align="right">6</td>
+<td align="right">3</td>
+<td>Business Member 2</td>
+<td>AU</td>
+	</tr>
+</tbody></table><!-- SQL:
+select ID ID, GROUP_ID GROUP_ID, NAME NAME, LOCATION LOCATION from (select * from "S5607012"."EMPLOYEES")--></body></html>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='Cp1252'>
+  
+  <title>Result Data</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <style>
+  * { 
+    margin: 0; 
+    padding: 0; 
+  }
+  body { 
+    font: 14px/1.4 Palatino, Serif; 
+  }
+  
+  /* 
+  Generic Styling, for Desktops/Laptops 
+  */
+  table { 
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+  /* Zebra striping */
+  tr:nth-of-type(odd) { 
+    background: #eee; 
+  }
+  th { 
+    background: #333; 
+    color: white; 
+    font-weight: bold; 
+  }
+  td, th { 
+    padding: 6px; 
+    border: 1px solid #9B9B9B; 
+    text-align: left; 
+  }
+  @media 
+  only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px)  {
+    table, thead, tbody, th, td, tr { display: block; }
+    thead tr { position: absolute;top: -9999px;left: -9999px;}
+    tr { border: 1px solid #9B9B9B; }
+    td { border: none;border-bottom: 1px solid #9B9B9B; position: relative;padding-left: 50%; }
+    
+    td:before { position: absolute;top: 6px;left: 6px;width: 45%; padding-right: 10px; white-space: nowrap;}
+    
+    /*
+    Label the data
+    */
+td:nth-of-type(1):before { content: "ID"; }
+td:nth-of-type(2):before { content: "NAME"; }
+  }
+  
+  /* Smartphones (portrait and landscape) ----------- */
+  @media only screen
+  and (min-device-width : 320px)
+  and (max-device-width : 480px) {
+    body { 
+      padding: 0; 
+      margin: 0; 
+      width: 320px; }
+    }
+  
+  /* iPads (portrait and landscape) ----------- */
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    body { 
+      width: 495px; 
+    }
+  }
+  
+  </style>
+  <!--<![endif]-->
+<script type="text/javascript">
+
+function search(){
+  
+  var s = document.getElementById('search').value;
+
+  rows = document.getElementById('data').getElementsByTagName('TR');
+  for(var i=0;i<rows.length;i++){
+    if ( rows[i].textContent.indexOf(s)>0  || s.length==0 ) {
+	  rows[i].style.display ='';
+    } else {
+      rows[i].style.display ='none';
+    }
+  }
+}
+
+
+var timer;
+function delayedSearch() {
+	clearTimeout(timer);
+	console.log('delay-ing')
+    timer = setTimeout(function () {
+		console.log('delay-running')
+		search();
+    }, 500);
+  }</script>
+</head>
+
+<body>
+<div><input type="text" size="30" maxlength="1000" value="" id="search" onkeyup="delayedSearch();" /><input type="button" value="Go" onclick="lsearch();"/> </div>
+<table><thead><tr>	<th>ID</th>
+	<th>NAME</th>
+</tr></thead>
+<tbody id="data">
+
+	<tr>
+<td align="right">1</td>
+<td>Major Incident Managers</td>
+	</tr>
+	<tr>
+<td align="right">2</td>
+<td>Problem Management</td>
+	</tr>
+	<tr>
+<td align="right">3</td>
+<td>Business Team</td>
+	</tr>
+</tbody></table><!-- SQL:
+select ID ID, NAME NAME from (select * from "S5607012"."EMPLOYEE_GROUPS")--></body></html>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='Cp1252'>
+  
+  <title>Result Data</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <style>
+  * { 
+    margin: 0; 
+    padding: 0; 
+  }
+  body { 
+    font: 14px/1.4 Palatino, Serif; 
+  }
+  
+  /* 
+  Generic Styling, for Desktops/Laptops 
+  */
+  table { 
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+  /* Zebra striping */
+  tr:nth-of-type(odd) { 
+    background: #eee; 
+  }
+  th { 
+    background: #333; 
+    color: white; 
+    font-weight: bold; 
+  }
+  td, th { 
+    padding: 6px; 
+    border: 1px solid #9B9B9B; 
+    text-align: left; 
+  }
+  @media 
+  only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px)  {
+    table, thead, tbody, th, td, tr { display: block; }
+    thead tr { position: absolute;top: -9999px;left: -9999px;}
+    tr { border: 1px solid #9B9B9B; }
+    td { border: none;border-bottom: 1px solid #9B9B9B; position: relative;padding-left: 50%; }
+    
+    td:before { position: absolute;top: 6px;left: 6px;width: 45%; padding-right: 10px; white-space: nowrap;}
+    
+    /*
+    Label the data
+    */
+td:nth-of-type(1):before { content: "ID"; }
+td:nth-of-type(2):before { content: "NAME"; }
+td:nth-of-type(3):before { content: "INCIDENT_TYPE"; }
+td:nth-of-type(4):before { content: "STATUS"; }
+td:nth-of-type(5):before { content: "SEVERITY"; }
+td:nth-of-type(6):before { content: "CREATED_AT"; }
+td:nth-of-type(7):before { content: "SHORT_DESCRIPTION"; }
+td:nth-of-type(8):before { content: "LONG_DESCRIPTION"; }
+td:nth-of-type(9):before { content: "MITIGATION_STEPS"; }
+  }
+  
+  /* Smartphones (portrait and landscape) ----------- */
+  @media only screen
+  and (min-device-width : 320px)
+  and (max-device-width : 480px) {
+    body { 
+      padding: 0; 
+      margin: 0; 
+      width: 320px; }
+    }
+  
+  /* iPads (portrait and landscape) ----------- */
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    body { 
+      width: 495px; 
+    }
+  }
+  
+  </style>
+  <!--<![endif]-->
+<script type="text/javascript">
+
+function search(){
+  
+  var s = document.getElementById('search').value;
+
+  rows = document.getElementById('data').getElementsByTagName('TR');
+  for(var i=0;i<rows.length;i++){
+    if ( rows[i].textContent.indexOf(s)>0  || s.length==0 ) {
+	  rows[i].style.display ='';
+    } else {
+      rows[i].style.display ='none';
+    }
+  }
+}
+
+
+var timer;
+function delayedSearch() {
+	clearTimeout(timer);
+	console.log('delay-ing')
+    timer = setTimeout(function () {
+		console.log('delay-running')
+		search();
+    }, 500);
+  }</script>
+</head>
+
+<body>
+<div><input type="text" size="30" maxlength="1000" value="" id="search" onkeyup="delayedSearch();" /><input type="button" value="Go" onclick="lsearch();"/> </div>
+<table><thead><tr>	<th>ID</th>
+	<th>NAME</th>
+	<th>INCIDENT_TYPE</th>
+	<th>STATUS</th>
+	<th>SEVERITY</th>
+	<th>CREATED_AT</th>
+	<th>SHORT_DESCRIPTION</th>
+	<th>LONG_DESCRIPTION</th>
+	<th>MITIGATION_STEPS</th>
+</tr></thead>
+<tbody id="data">
+
+	<tr>
+<td align="right">1</td>
+<td>Login System Issues</td>
+<td>Technology Outage</td>
+<td>Diagnose</td>
+<td>Major</td>
+<td>10-MAY-24</td>
+<td>Some users are unable to log in</td>
+<td>Some users are unable to log into their accounts, they are unable to access documents required to do their job.</td>
+<td>&nbsp;</td>
+	</tr>
+	<tr>
+<td align="right">2</td>
+<td>Website Down</td>
+<td>Technology Outage</td>
+<td>Resolved</td>
+<td>Major</td>
+<td>08-MAY-24</td>
+<td>Website is not available</td>
+<td>Website is not available, customers cannot access services or make payments</td>
+<td>Restart website host machine</td>
+	</tr>
+	<tr>
+<td align="right">3</td>
+<td>Payment Issues</td>
+<td>Technology Outage</td>
+<td>Workaround</td>
+<td>Significant</td>
+<td>12-MAY-24</td>
+<td>Some payment options are not working</td>
+<td>Credit cards are not being accepted, other third party processors still work.</td>
+<td>Use a different payment method</td>
+	</tr>
+	<tr>
+<td align="right">4</td>
+<td>Broken Laptop</td>
+<td>Technology Outage</td>
+<td>Workaround</td>
+<td>Standard</td>
+<td>15-MAY-24</td>
+<td>Some laptops are broken and unusable</td>
+<td>Some laptops have broken and no longer power on. Some employees are unable to work remotely.</td>
+<td>Supply affected employees with temporary laptops or use desktop computers in the offices.</td>
+	</tr>
+</tbody></table><!-- SQL:
+select ID ID, NAME NAME, INCIDENT_TYPE INCIDENT_TYPE, STATUS STATUS, SEVERITY SEVERITY, CREATED_AT CREATED_AT, SHORT_DESCRIPTION SHORT_DESCRIPTION, LONG_DESCRIPTION LONG_DESCRIPTION, MITIGATION_STEPS MITIGATION_STEPS from (select * from "S5607012"."INCIDENTS")--></body></html>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='Cp1252'>
+  
+  <title>Result Data</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <style>
+  * { 
+    margin: 0; 
+    padding: 0; 
+  }
+  body { 
+    font: 14px/1.4 Palatino, Serif; 
+  }
+  
+  /* 
+  Generic Styling, for Desktops/Laptops 
+  */
+  table { 
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+  /* Zebra striping */
+  tr:nth-of-type(odd) { 
+    background: #eee; 
+  }
+  th { 
+    background: #333; 
+    color: white; 
+    font-weight: bold; 
+  }
+  td, th { 
+    padding: 6px; 
+    border: 1px solid #9B9B9B; 
+    text-align: left; 
+  }
+  @media 
+  only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px)  {
+    table, thead, tbody, th, td, tr { display: block; }
+    thead tr { position: absolute;top: -9999px;left: -9999px;}
+    tr { border: 1px solid #9B9B9B; }
+    td { border: none;border-bottom: 1px solid #9B9B9B; position: relative;padding-left: 50%; }
+    
+    td:before { position: absolute;top: 6px;left: 6px;width: 45%; padding-right: 10px; white-space: nowrap;}
+    
+    /*
+    Label the data
+    */
+td:nth-of-type(1):before { content: "ID"; }
+td:nth-of-type(2):before { content: "INCIDENT_ID"; }
+td:nth-of-type(3):before { content: "TASK_TYPE"; }
+td:nth-of-type(4):before { content: "PRIORITY"; }
+td:nth-of-type(5):before { content: "DESCRIPTION"; }
+td:nth-of-type(6):before { content: "STATUS"; }
+td:nth-of-type(7):before { content: "CREATED_AT"; }
+td:nth-of-type(8):before { content: "DUE_AT"; }
+td:nth-of-type(9):before { content: "RESOLVER_ID"; }
+  }
+  
+  /* Smartphones (portrait and landscape) ----------- */
+  @media only screen
+  and (min-device-width : 320px)
+  and (max-device-width : 480px) {
+    body { 
+      padding: 0; 
+      margin: 0; 
+      width: 320px; }
+    }
+  
+  /* iPads (portrait and landscape) ----------- */
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    body { 
+      width: 495px; 
+    }
+  }
+  
+  </style>
+  <!--<![endif]-->
+<script type="text/javascript">
+
+function search(){
+  
+  var s = document.getElementById('search').value;
+
+  rows = document.getElementById('data').getElementsByTagName('TR');
+  for(var i=0;i<rows.length;i++){
+    if ( rows[i].textContent.indexOf(s)>0  || s.length==0 ) {
+	  rows[i].style.display ='';
+    } else {
+      rows[i].style.display ='none';
+    }
+  }
+}
+
+
+var timer;
+function delayedSearch() {
+	clearTimeout(timer);
+	console.log('delay-ing')
+    timer = setTimeout(function () {
+		console.log('delay-running')
+		search();
+    }, 500);
+  }</script>
+</head>
+
+<body>
+<div><input type="text" size="30" maxlength="1000" value="" id="search" onkeyup="delayedSearch();" /><input type="button" value="Go" onclick="lsearch();"/> </div>
+<table><thead><tr>	<th>ID</th>
+	<th>INCIDENT_ID</th>
+	<th>TASK_TYPE</th>
+	<th>PRIORITY</th>
+	<th>DESCRIPTION</th>
+	<th>STATUS</th>
+	<th>CREATED_AT</th>
+	<th>DUE_AT</th>
+	<th>RESOLVER_ID</th>
+</tr></thead>
+<tbody id="data">
+
+	<tr>
+<td align="right">1</td>
+<td align="right">1</td>
+<td>Diagnose</td>
+<td>High</td>
+<td>Investigate the cause of login issues</td>
+<td>In Progress</td>
+<td>10-MAY-24</td>
+<td>12-MAY-24</td>
+<td align="right">2</td>
+	</tr>
+	<tr>
+<td align="right">2</td>
+<td align="right">2</td>
+<td>Mitigation</td>
+<td>High</td>
+<td>Restart website host machine</td>
+<td>Complete</td>
+<td>08-MAY-24</td>
+<td>&nbsp;</td>
+<td align="right">3</td>
+	</tr>
+	<tr>
+<td align="right">3</td>
+<td align="right">2</td>
+<td>Post Incident</td>
+<td>Medium</td>
+<td>Investigate cause of machine crash</td>
+<td>Complete</td>
+<td>08-MAY-24</td>
+<td>09-MAY-24</td>
+<td align="right">2</td>
+	</tr>
+	<tr>
+<td align="right">4</td>
+<td align="right">3</td>
+<td>Diagnose</td>
+<td>High</td>
+<td>Contact payment processors to investigate issues</td>
+<td>In Progress</td>
+<td>12-MAY-24</td>
+<td>12-MAY-24</td>
+<td align="right">3</td>
+	</tr>
+	<tr>
+<td align="right">5</td>
+<td align="right">3</td>
+<td>Workaround</td>
+<td>Medium</td>
+<td>Advise customer support team to tell users to try different payment methods</td>
+<td>In Progress</td>
+<td>12-MAY-24</td>
+<td>&nbsp;</td>
+<td align="right">4</td>
+	</tr>
+	<tr>
+<td align="right">6</td>
+<td align="right">4</td>
+<td>Workaround</td>
+<td>High</td>
+<td>Hand out replacement laptops to affected users</td>
+<td>Complete</td>
+<td>15-MAY-24</td>
+<td>&nbsp;</td>
+<td align="right">2</td>
+	</tr>
+	<tr>
+<td align="right">7</td>
+<td align="right">4</td>
+<td>Mitigation</td>
+<td>Low</td>
+<td>Fix broken laptops</td>
+<td>New</td>
+<td>15-MAY-24</td>
+<td>20-MAY-24</td>
+<td align="right">4</td>
+	</tr>
+</tbody></table><!-- SQL:
+select ID ID, INCIDENT_ID INCIDENT_ID, TASK_TYPE TASK_TYPE, PRIORITY PRIORITY, DESCRIPTION DESCRIPTION, STATUS STATUS, CREATED_AT CREATED_AT, DUE_AT DUE_AT, RESOLVER_ID RESOLVER_ID from (select * from "S5607012"."INCIDENT_TASKS")--></body></html>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='Cp1252'>
+  
+  <title>Result Data</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <style>
+  * { 
+    margin: 0; 
+    padding: 0; 
+  }
+  body { 
+    font: 14px/1.4 Palatino, Serif; 
+  }
+  
+  /* 
+  Generic Styling, for Desktops/Laptops 
+  */
+  table { 
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+  /* Zebra striping */
+  tr:nth-of-type(odd) { 
+    background: #eee; 
+  }
+  th { 
+    background: #333; 
+    color: white; 
+    font-weight: bold; 
+  }
+  td, th { 
+    padding: 6px; 
+    border: 1px solid #9B9B9B; 
+    text-align: left; 
+  }
+  @media 
+  only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px)  {
+    table, thead, tbody, th, td, tr { display: block; }
+    thead tr { position: absolute;top: -9999px;left: -9999px;}
+    tr { border: 1px solid #9B9B9B; }
+    td { border: none;border-bottom: 1px solid #9B9B9B; position: relative;padding-left: 50%; }
+    
+    td:before { position: absolute;top: 6px;left: 6px;width: 45%; padding-right: 10px; white-space: nowrap;}
+    
+    /*
+    Label the data
+    */
+td:nth-of-type(1):before { content: "EMPLOYEE_ID"; }
+td:nth-of-type(2):before { content: "USERNAME"; }
+td:nth-of-type(3):before { content: "PASSWORD"; }
+  }
+  
+  /* Smartphones (portrait and landscape) ----------- */
+  @media only screen
+  and (min-device-width : 320px)
+  and (max-device-width : 480px) {
+    body { 
+      padding: 0; 
+      margin: 0; 
+      width: 320px; }
+    }
+  
+  /* iPads (portrait and landscape) ----------- */
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    body { 
+      width: 495px; 
+    }
+  }
+  
+  </style>
+  <!--<![endif]-->
+<script type="text/javascript">
+
+function search(){
+  
+  var s = document.getElementById('search').value;
+
+  rows = document.getElementById('data').getElementsByTagName('TR');
+  for(var i=0;i<rows.length;i++){
+    if ( rows[i].textContent.indexOf(s)>0  || s.length==0 ) {
+	  rows[i].style.display ='';
+    } else {
+      rows[i].style.display ='none';
+    }
+  }
+}
+
+
+var timer;
+function delayedSearch() {
+	clearTimeout(timer);
+	console.log('delay-ing')
+    timer = setTimeout(function () {
+		console.log('delay-running')
+		search();
+    }, 500);
+  }</script>
+</head>
+
+<body>
+<div><input type="text" size="30" maxlength="1000" value="" id="search" onkeyup="delayedSearch();" /><input type="button" value="Go" onclick="lsearch();"/> </div>
+<table><thead><tr>	<th>EMPLOYEE_ID</th>
+	<th>USERNAME</th>
+	<th>PASSWORD</th>
+</tr></thead>
+<tbody id="data">
+
+	<tr>
+<td align="right">1</td>
+<td>mim01</td>
+<td>majorincidentmanager123</td>
+	</tr>
+	<tr>
+<td align="right">2</td>
+<td>problemmanager01</td>
+<td>problemmanager123</td>
+	</tr>
+	<tr>
+<td align="right">3</td>
+<td>problemmanager02</td>
+<td>problemmanager231</td>
+	</tr>
+	<tr>
+<td align="right">4</td>
+<td>problemmanager03</td>
+<td>problemmanager321</td>
+	</tr>
+	<tr>
+<td align="right">5</td>
+<td>businessmember01</td>
+<td>businessmember123</td>
+	</tr>
+	<tr>
+<td align="right">6</td>
+<td>businessmember02</td>
+<td>businessmember231</td>
+	</tr>
+</tbody></table><!-- SQL:
+select EMPLOYEE_ID EMPLOYEE_ID, USERNAME USERNAME, PASSWORD PASSWORD from (select * from "S5607012"."LOGIN_DETAILS")--></body></html>

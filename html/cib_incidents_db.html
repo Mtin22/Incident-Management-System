@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://kit.fontawesome.com/9065e3a5e6.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="../img/DWK_Logo_Circular.png">
+  <meta charset='Cp1252'>
+  
+  <title>CIB - Group7 Database /// Exported - Incident Reports</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <style>
+  * { 
+    margin: 0; 
+    padding: 0; 
+  }
+  body { 
+    font: 14px/1.4 Palatino, Serif; 
+  }
+  
+  /* 
+  Generic Styling, for Desktops/Laptops 
+  */
+  table { 
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+  /* Zebra striping */
+  tr:nth-of-type(odd) { 
+    background: #eee; 
+  }
+  th { 
+    background: #333; 
+    color: white; 
+    font-weight: bold; 
+  }
+  td, th { 
+    padding: 6px; 
+    border: 1px solid #9B9B9B; 
+    text-align: left; 
+  }
+  @media 
+  only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px)  {
+    table, thead, tbody, th, td, tr { display: block; }
+    thead tr { position: absolute;top: -9999px;left: -9999px;}
+    tr { border: 1px solid #9B9B9B; }
+    td { border: none;border-bottom: 1px solid #9B9B9B; position: relative;padding-left: 50%; }
+    
+    td:before { position: absolute;top: 6px;left: 6px;width: 45%; padding-right: 10px; white-space: nowrap;}
+    
+    /*
+    Label the data
+    */
+td:nth-of-type(1):before { content: "ID"; }
+td:nth-of-type(2):before { content: "NAME"; }
+td:nth-of-type(3):before { content: "INCIDENT_TYPE"; }
+td:nth-of-type(4):before { content: "STATUS"; }
+td:nth-of-type(5):before { content: "SEVERITY"; }
+td:nth-of-type(6):before { content: "CREATED_AT"; }
+td:nth-of-type(7):before { content: "SHORT_DESCRIPTION"; }
+td:nth-of-type(8):before { content: "LONG_DESCRIPTION"; }
+td:nth-of-type(9):before { content: "MITIGATION_STEPS"; }
+  }
+  
+  /* Smartphones (portrait and landscape) ----------- */
+  @media only screen
+  and (min-device-width : 320px)
+  and (max-device-width : 480px) {
+    body { 
+      padding: 0; 
+      margin: 0; 
+      width: 320px; }
+    }
+  
+  /* iPads (portrait and landscape) ----------- */
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    body { 
+      width: 495px; 
+    }
+  }
+  
+  </style>
+  <!--<![endif]-->
+<script type="text/javascript">
+
+function search(){
+  
+  var s = document.getElementById('search').value;
+
+  rows = document.getElementById('data').getElementsByTagName('TR');
+  for(var i=0;i<rows.length;i++){
+    if ( rows[i].textContent.indexOf(s)>0  || s.length==0 ) {
+	  rows[i].style.display ='';
+    } else {
+      rows[i].style.display ='none';
+    }
+  }
+}
+
+
+var timer;
+function delayedSearch() {
+	clearTimeout(timer);
+	console.log('delay-ing')
+    timer = setTimeout(function () {
+		console.log('delay-running')
+		search();
+    }, 500);
+  }</script>
+</head>
+
+<body>
+<table><thead><tr>	<th>ID</th>
+	<th>NAME</th>
+	<th>INCIDENT_TYPE</th>
+	<th>STATUS</th>
+	<th>SEVERITY</th>
+	<th>CREATED_AT</th>
+	<th>SHORT_DESCRIPTION</th>
+	<th>LONG_DESCRIPTION</th>
+	<th>MITIGATION_STEPS</th>
+</tr></thead>
+<tbody id="data">
+
+	<tr>
+<td align="right">1</td>
+<td>Login System Issues</td>
+<td>Technology Outage</td>
+<td>Diagnose</td>
+<td>Major</td>
+<td>10-MAY-24</td>
+<td>Some users are unable to log in</td>
+<td>Some users are unable to log into their accounts, they are unable to access documents required to do their job.</td>
+<td>&nbsp;</td>
+	</tr>
+	<tr>
+<td align="right">2</td>
+<td>Website Down</td>
+<td>Technology Outage</td>
+<td>Resolved</td>
+<td>Major</td>
+<td>08-MAY-24</td>
+<td>Website is not available</td>
+<td>Website is not available, customers cannot access services or make payments</td>
+<td>Restart website host machine</td>
+	</tr>
+	<tr>
+<td align="right">3</td>
+<td>Payment Issues</td>
+<td>Technology Outage</td>
+<td>Workaround</td>
+<td>Significant</td>
+<td>12-MAY-24</td>
+<td>Some payment options are not working</td>
+<td>Credit cards are not being accepted, other third party processors still work.</td>
+<td>Use a different payment method</td>
+	</tr>
+	<tr>
+<td align="right">4</td>
+<td>Broken Laptop</td>
+<td>Technology Outage</td>
+<td>Workaround</td>
+<td>Standard</td>
+<td>15-MAY-24</td>
+<td>Some laptops are broken and unusable</td>
+<td>Some laptops have broken and no longer power on. Some employees are unable to work remotely.</td>
+<td>Supply affected employees with temporary laptops or use desktop computers in the offices.</td>
+	</tr>
+</tbody></table><!-- SQL:
+select ID ID, NAME NAME, INCIDENT_TYPE INCIDENT_TYPE, STATUS STATUS, SEVERITY SEVERITY, CREATED_AT CREATED_AT, SHORT_DESCRIPTION SHORT_DESCRIPTION, LONG_DESCRIPTION LONG_DESCRIPTION, MITIGATION_STEPS MITIGATION_STEPS from (select * from "S5607012"."INCIDENTS")--></body></html>

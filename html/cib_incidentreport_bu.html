@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">  
+    <head>
+        <link rel="stylesheet" href="../CSS/CIB_CSS.css">
+        <script src="https://kit.fontawesome.com/9065e3a5e6.js" crossorigin="anonymous"></script>
+        <link rel="icon" type="image/x-icon" href="../img/DWK_Logo_Circular.png">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="../js/accountHandling.js"></script>
+        <title> CIB - Group7 </title>
+    </head>
+    
+    <body>
+        <header>
+            <img src="../img/DWK_Logo_Circular.png" style= "height:88px; width:100px; float: left;">
+            <h1>  DWK - Incident Report System </h1>
+        </header>    
+        <nav>
+            <a href="cib_home.html"><i class="fa-solid fa-house"></i> &nbsp;  Home </a>
+            <a id= "incidentpage" href="#"> <i class="fa-solid fa-note-sticky"></i> &nbsp; Incidents Area </a>
+            <a id= "" href="cib_incidentsreported.html"> <i class="fa-solid fa-file"></i> &nbsp; Reported Incidents </a>
+            <a id= "" href="cib_chat.html"> <i class="fa-solid fa-comment"></i> &nbsp; Chat </a>
+            <section class="navright">
+                <a href="cib_signindetails.html" title= "Sign in Details"> <i class="fa-solid fa-user"></i> </a> 
+            </section>
+        </nav>
+        <section class="main" style="text-align: left; padding: 20px 60px 220px 40px;">
+            <section class= "accessibility" >
+                <a id="volume" onclick="accessibilityman()" href="" title= "Live Speech"><i class="fa-solid fa-volume-high"></i></a>
+                &emsp;
+                <a id="largetext" onclick="accessibilityman()" href="" title= "Larger Text"><i class="fa-solid fa-a"></i></a>
+                &nbsp;
+                &nbsp;
+            </section>
+        <form>
+            <h2>Incidents Area - Report a new incident (We auto filled some of the boxes based on the information that we have on you, if wrong feel free to edit it)</h2>
+            <label for="fname"> First Name: </label>
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &nbsp;
+            <label for="lname"> Last Name: </label>
+            <br>
+            <input type="text" id="incidentfname" name="fname" placeholder="First Name (Required)" >
+            <input type="text" id="incidentlname" name="lname" placeholder="Last Name (Required)" >
+            <br>
+            <br>
+            <label for="email" > Email: </label>
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            <label for="phonenumber"> Phone Number: </label>
+            <br>
+            <input type="email" id="incidentemail" name="email" placeholder="@email.com (Required)">
+            <input type="number" id="incidentphonenumber" name="phonenumber" placeholder="Your Phone Number - 07######### (Required)">
+            <br>
+            <br>
+            <label style="text-align: center;"> Incident Name: </label>
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            <label for="incidentr" style="text-align: center;"> Type of Incident: </label>
+            <br>
+            <input type="text" id="incidentname" placeholder="Incident Name (Required)">
+            <select>
+                <option value="Select Incident" disabled selected> Select Incident (Required) </option> 
+                <option value="Technology Outage"> Technology Outage </option>  
+                <option value="Cyberattack"> Cyberattack </option> 
+                <option value="Data Breach">Data Breach </option>  
+                <option value="Security Threat"> Security Threat </option>
+            </select>
+            <br>
+            <br>
+            <label for="incidentdetail">Incident Detail: </label>
+            <textarea  id="incidentdetail" name="icidentdetail" rows="10" cols="33" placeholder="Details of the Incident (Optional)" ></textarea>
+            <button onclick="incidentreportbutton()"> Report Incident </button>
+        </form>
+        </section>
+        <script>
+            setIncidentPages();
+            document.getElementById("incidentemail").value = sessionStorage.getItem("signupemail");
+            document.getElementById("incidentfname").value = sessionStorage.getItem("signupfname");
+            document.getElementById("incidentlname").value = sessionStorage.getItem("signuplname");
+            document.getElementById("incidentphonenumber").value = sessionStorage.getItem("signupphonenumber");
+            //let incidentname = document.getElementById("incidentname").value;
+            function incidentreportbutton(){
+                confirm ("Confirm the entered Report Details.");
+                /*if (incidentname != null){
+                    confirm ("Confirm the entered Report Details.");
+                }
+                else {
+                    alert ("Please fill all Required fields!");
+                    event.preventDefault();
+                } */
+            }
+        </script>
+        <footer>
+            <p><i class="fa-solid fa-copyright"></i> All Rights Reserved </p>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="../CSS/CIB_CSS.css">
+        <script src="https://kit.fontawesome.com/9065e3a5e6.js" crossorigin="anonymous"></script>
+        <link rel="icon" type="image/x-icon" href="../img/DWK_Logo_Circular.png">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="../js/accountHandling.js"></script>
+        <title> CIB - Group7 </title>
+    </head>
+    
+    <body>
+        <header>
+            <img src="../img/DWK_Logo_Circular.png" style= "height:88px; width:100px; float: left;">
+            <h1> DWK - Incident Report System </h1>
+        </header>    
+        <nav>
+            <section class="navright">
+                <a href="cib_credits.html" title= "Change Log"> <i class="fa-regular fa-note-sticky"></i></a> 
+                <a href="cib_signin.html" title= "Sign in"> <i class="fa-solid fa-user"></i> </a> 
+            </section>
+        </nav>
+        <section class="main" style="text-align: left; padding: 20px 60px 280px 40px;">
+             <section class= "accessibility" >
+                <a id="volume" onclick="accessibilityman()" href="" title= "Live Speech"><i class="fa-solid fa-volume-high"></i></a>
+                &emsp;
+                <a id="largetext" onclick="accessibilityman()" href="" title= "Larger Text"><i class="fa-solid fa-a"></i></a>
+                &nbsp;
+                &nbsp;
+            </section>
+        <form>
+            <h2>Sign up Page</h2>
+            <label for="signuprole" style="text-align: center;"> Select your Role: </label>
+            <br>
+            <select id="signuprole"  placeholder="Select Role">
+                <option value="Select your Role" disabled selected>Select your Role  </option>
+                <option value="Major Incident Management Staff - (MIM)">Major Incident Management Staff - (MIM)  </option> 
+                <option value="Non Incident Response Team - (NIRT)">Non Incident Response Team - (NIRT)  </option> 
+                <option value="Business Users - (BU)">Business Users - (BU) </option> 
+                <option value="Problem Management Team - (PMT)">Problem Management Team - (PMT)  </option> 
+            </select>
+            <br>
+            <br>
+            <label for="signupfname"> First Name: </label>
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &nbsp;
+            <label for="signuplname"> Last Name: </label>
+            <br>
+            <input type="text" id="signupfname" placeholder="First Name">
+            <input type="text" id="signuplname" placeholder="Last Name">
+            <br>
+            <br>
+            <label for="signupemail"> Email: </label>
+            <i class="fa-solid fa-envelope" style="color: azure;"></i>
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            <label for="signupphonenumber"> Phone Number: </label>
+            <i class="fa-solid fa-phone" style="color: azure;"></i>
+            <br>
+            <input type="email" id="signupemail"  placeholder="@email.com" required> 
+            <input type="number" id="signupphonenumber" placeholder="07######### - Your Phone Number">
+            <br>
+            <br>
+            <label for="signuppassword"> Password: </label>
+            <i class="fa-solid fa-key" style="color: azure;"></i>
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &nbsp;
+            <label for="signuppasswordc"> Confirm Password: </label>
+            <i class="fa-solid fa-key" style="color: azure;"></i>
+            <br>
+            <input type="password" id="signuppassword"  placeholder="Password">
+            <input type="password" id="signuppasswordc"  placeholder="Confirm Password">
+            <br>
+            <br>
+            <input type="checkbox" onclick="unhidepassword()"> Reveal Password
+            <br>
+            <p style="font-size: 19px;">Password format: <br>
+            -Combination of Capital and Lowercase letters, numbers, symbols. <br>
+            -Minimum of 8-12 characters long. <br> <br>
+            By Signing up you agree to the privacy policy on this site.  <input type="checkbox"> 
+            </p>
+            <button onclick="signup()"> Sign up  &nbsp; <i class="fa-solid fa-right-to-bracket"></i></button>
+        </form>
+        <br>
+        <br>  
+        <p>Already Signed up? Sign in here: <a href="cib_signin.html">Sign in </a> </p>
+        </section>
+    <script>
+        function unhidepassword() {
+            let passwordunhide = document.getElementById("signuppassword");
+            let passwordconfirmunhide = document.getElementById("signuppasswordc");
+            if (passwordunhide.type == "password"){
+            passwordunhide.type = "text";
+            passwordconfirmunhide.type = "text";
+            }
+            else {
+            passwordunhide.type = "password";
+            passwordconfirmunhide.type = "password";
+            }  
+        } 
+        function signup(){
+            let role = document.getElementById("signuprole").value;
+            let fname = document.getElementById("signupfname").value;
+            let lname = document.getElementById("signuplname").value;
+            let email = document.getElementById("signupemail").value;
+            let phonenumber = document.getElementById("signupphonenumber").value;
+            let password = document.getElementById("signuppassword").value;
+            let passwordc = document.getElementById("signuppasswordc").value;
+
+            sessionStorage.setItem("signuprole", role); 
+            sessionStorage.setItem("signupfname", fname);
+            sessionStorage.setItem("signuplname", lname);
+            sessionStorage.setItem("signupemail", email);
+            sessionStorage.setItem("signupphonenumber", phonenumber);
+            sessionStorage.setItem("signuppassword", password);
+
+
+            if (fname == "" || lname == "" || phonenumber == "" || password == "" || passwordc == "" || role == "Select your Role" || email == ""){
+                alert("Please fill all fields!");
+                event.preventDefault();
+            }
+
+            else if (!email.includes("@")) {
+                alert("Please enter a valid email address.");
+                event.preventDefault();
+            }
+             
+            else if (password != passwordc) {
+                alert ("Make sure that the Password & the Confirm Password is the same!")
+                event.preventDefault();
+            }
+
+            else if (prompt ("We have sent a verification code to your phone, the phone number that you have provided will be used for 2 Factor Authentication (2FA) in the future, so if you havent got the code then click cancel to correct existing details. Otherwise provide the Code here and press OK: " ) != null) {
+                window.location = "cib_signin.html"
+                event.preventDefault();
+            }
+            event.preventDefault();
+        }
+    </script>
+        <footer> 
+            <p><i class="fa-solid fa-copyright"></i> All Rights Reserved </p>
+        </footer>
+    </body>
+</html>

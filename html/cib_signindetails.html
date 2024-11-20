@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="../CSS/CIB_CSS.css">
+        <script src="https://kit.fontawesome.com/9065e3a5e6.js" crossorigin="anonymous"></script>
+        <link rel="icon" type="image/x-icon" href="../img/DWK_Logo_Circular.png">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="../js/accountHandling.js"></script>
+        <title> CIB - Group7 </title>
+    </head>
+    
+    <body>    
+        <header>
+            <img src="../img/DWK_Logo_Circular.png" style= "height:88px; width:100px; float: left;">
+            <h1> DWK - Incident Report System </h1>
+        </header>    
+        <nav>                      
+            <a href="cib_home.html"><i class="fa-solid fa-house"></i> &nbsp;  Home </a>
+            <a id= "incidentpage" href="#"> <i class="fa-solid fa-note-sticky"></i> &nbsp; Incidents Area </a>
+            <a id= "" href="cib_incidentsreported.html"> <i class="fa-solid fa-file"></i> &nbsp; Reported Incidents </a>
+            <a id= "" href="cib_chat.html"> <i class="fa-solid fa-comment"></i> &nbsp; Chat </a>
+            <section class="navright">
+                <a href="cib_signindetails.html" title= "Sign in Details"> <i class="fa-solid fa-user"></i> </a> 
+            
+            </section>
+        </nav>
+        <section class="main">  
+            <section class= "accessibility" >
+                <a id="volume" onclick="accessibilityman()" href="" title= "Live Speech"><i class="fa-solid fa-volume-high"></i></a>
+                &emsp;
+                <a id="largetext" onclick="accessibilityman()" href="" title= "Larger Text"><i class="fa-solid fa-a"></i></a>
+                &nbsp;
+                &nbsp;
+            </section>
+            <p><u>User Details: </u></p>
+            <p id=1> </p>
+            <p id=2> </p>
+            <p id=3> </p>
+            <p id=4> </p>
+            <p id=5> </p>
+            <br>
+            <a href="cib_signin.html"><button>Sign out  &nbsp; <i class="fa-solid fa-right-from-bracket"></i> </button></a>
+        </section>
+        <footer>
+            <p><i class="fa-solid fa-copyright"></i> All Rights Reserved </p>
+        </footer>
+
+        <script>
+            setIncidentPages();
+            document.getElementById("1").textContent ="Role: " + sessionStorage.getItem("signuprole");
+            document.getElementById("2").textContent ="First Name: "+ sessionStorage.getItem("signupfname");
+            document.getElementById("3").textContent ="Last Name: "+ sessionStorage.getItem("signuplname");
+            document.getElementById("4").textContent ="Email: "+ sessionStorage.getItem("signupemail");
+            document.getElementById("5").textContent ="Phone Number: "+ sessionStorage.getItem("signupphonenumber");
+        </script>
+    </body>
+</html>

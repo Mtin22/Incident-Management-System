@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">  
+    <head>
+        <link rel="stylesheet" href="../CSS/CIB_CSS.css">
+        <script src="https://kit.fontawesome.com/9065e3a5e6.js" crossorigin="anonymous"></script>
+        <link rel="icon" type="image/x-icon" href="../img/DWK_Logo_Circular.png">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="../js/accountHandling.js"></script>
+        <title> CIB - Group7 </title>
+          <style>
+                  body { 
+                    font: 14px/1.4;
+                    font-family: Arial, Helvetica, sans-serif;
+                  }
+
+                  /* 
+                  Generic Styling, for Desktops/Laptops 
+                  */
+                  table { 
+                    width: 100%; 
+                    border-collapse: collapse; 
+                  }
+                  /* Zebra striping */
+                  tr { 
+                    background: #FFFFFF; 
+                  }
+                  th { 
+                    background: #333; 
+                    color: white;
+                    font-weight: bold; 
+                    padding: 6px; 
+                    border: 1px solid #9B9B9B; 
+                    text-align: left; 
+                  }
+                  td { 
+                    padding: 6px; 
+                    border: 1px solid #9B9B9B; 
+                    text-align: left; 
+                    color: black;
+                  }
+                  @media 
+                  only screen and (max-width: 760px),
+                  (min-device-width: 768px) and (max-device-width: 1024px)  {
+                    table, thead, tbody, th, td, tr { display: block; }
+                    thead tr { position: absolute;top: -9999px;left: -9999px;}
+                    tr { border: 1px solid #9B9B9B; }
+                    td { border: none;border-bottom: 1px solid #9B9B9B; position: relative;padding-left: 50%; }
+
+                    td:before { position: absolute;top: 6px;left: 6px;width: 45%; padding-right: 10px; white-space: nowrap;}
+
+                    /*
+                    Label the data
+                    */
+                td:nth-of-type(1):before { content: "ID"; }
+                td:nth-of-type(2):before { content: "NAME"; }
+                td:nth-of-type(3):before { content: "INCIDENT_TYPE"; }
+                td:nth-of-type(4):before { content: "STATUS"; }
+                td:nth-of-type(5):before { content: "SEVERITY"; }
+                td:nth-of-type(6):before { content: "CREATED_AT"; }
+                td:nth-of-type(7):before { content: "SHORT_DESCRIPTION"; }
+                td:nth-of-type(8):before { content: "LONG_DESCRIPTION"; }
+                td:nth-of-type(9):before { content: "MITIGATION_STEPS"; }
+                  }
+
+                  /* Smartphones (portrait and landscape) ----------- */
+                  @media only screen
+                  and (min-device-width : 320px)
+                  and (max-device-width : 480px) {
+                    body { 
+                      padding: 0; 
+                      margin: 0; 
+                      width: 320px; }
+                    }
+
+                  /* iPads (portrait and landscape) ----------- */
+                  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+                    body { 
+                      width: 495px; 
+                    }
+                  }
+
+            </style>
+    </head>
+    
+    <body>
+        <header>
+            <img src="../img/DWK_Logo_Circular.png" style= "height:88px; width:100px; float: left;">
+            <h1> DWK - Incident Report System </h1>
+        </header>    
+        <nav>
+            <a href="cib_home.html"><i class="fa-solid fa-house"></i> &nbsp;  Home </a>
+            <a id= "incidentpage" href="#"> <i class="fa-solid fa-note-sticky"></i> &nbsp; Incidents Area </a>
+            <a href="cib_incidentsreported.html"> <i class="fa-solid fa-file"></i> &nbsp; Reported Incidents </a>
+            <a href="cib_chat.html"> <i class="fa-solid fa-comment"></i> &nbsp; Chat </a>
+            <section class="navright">
+                <a href="cib_signindetails.html" title= "Sign in Details"> <i class="fa-solid fa-user"></i> </a> 
+            </section>
+        </nav>
+        <section class="main">
+            <section class= "accessibility" >
+                <a id="volume" onclick="accessibilityman()" href="" title= "Live Speech"><i class="fa-solid fa-volume-high"></i></a>
+                &emsp;
+                <a id="largetext" onclick="accessibilityman()" href="" title= "Larger Text"><i class="fa-solid fa-a"></i></a>
+                &nbsp;
+                &nbsp;
+            </section>
+            <h2>Incidents Area</h2>
+            <p><u>Quick Overview of the Current Incidents: </u></p>
+            <a href="cib_entire_database.html" target="_blank" style="float: right">View Incidents in more detail - HTML ver. of the whole Database</a>
+            <br>
+        <form style="font-size: 17px;">
+        <table><thead><tr>	<th>ID</th>
+            <th>NAME</th>
+            <th>INCIDENT_TYPE</th>
+            <th>STATUS</th>
+            <th>SEVERITY</th>
+            <th>CREATED_AT</th>
+            <th>SHORT_DESCRIPTION</th>
+            <th>LONG_DESCRIPTION</th>
+            <th>MITIGATION_STEPS</th>
+            <th>NUMBER_OF_MEMBERS_ASSIGNED</th>
+        </tr></thead>
+        <tbody id="data">
+
+            <tr>
+        <td align="right">1</td>
+        <td>Login System Issues</td>
+        <td>Technology Outage</td>
+        <td>Diagnose</td>
+        <td>Major</td>
+        <td>10-MAY-24</td>
+        <td>Some users are unable to log in</td>
+        <td>Some users are unable to log into their accounts, they are unable to access documents required to do their job.</td>
+        <td>&nbsp;</td>
+        <td>Assigned Members: 9.</td>
+            </tr>
+            <tr>
+        <td align="right">2</td>
+        <td>Website Down</td>
+        <td>Technology Outage</td>
+        <td>Resolved</td>
+        <td>Major</td>
+        <td>08-MAY-24</td>
+        <td>Website is not available</td>
+        <td>Website is not available, customers cannot access services or make payments</td>
+        <td>Restart website host machine</td>
+        <td>Assigned Members: 18.</td>
+            </tr>
+            <tr>
+        <td align="right">3</td>
+        <td>Payment Issues</td>
+        <td>Technology Outage</td>
+        <td>Workaround</td>
+        <td>Significant</td>
+        <td>12-MAY-24</td>
+        <td>Some payment options are not working</td>
+        <td>Credit cards are not being accepted, other third party processors still work.</td>
+        <td>Use a different payment method</td>
+        <td>Assigned Members: 24.</td>
+            </tr>
+            <tr>
+        <td align="right">4</td>
+        <td>Broken Laptop</td>
+        <td>Technology Outage</td>
+        <td>Workaround</td>
+        <td>Standard</td>
+        <td>15-MAY-24</td>
+        <td>Some laptops are broken and unusable</td>
+        <td>Some laptops have broken and no longer power on. Some employees are unable to work remotely.</td>
+        <td>Supply affected employees with temporary laptops or use desktop computers in the offices.</td>
+        <td>Assigned Members: 5.</td>
+            </tr>
+        </tbody></table><!-- SQL:
+        select ID ID, NAME NAME, INCIDENT_TYPE INCIDENT_TYPE, STATUS STATUS, SEVERITY SEVERITY, CREATED_AT CREATED_AT, SHORT_DESCRIPTION SHORT_DESCRIPTION, LONG_DESCRIPTION LONG_DESCRIPTION, MITIGATION_STEPS MITIGATION_STEPS from (select * from "S5607012"."INCIDENTS")-->
+        <br>
+        <br>
+        <section style="font-size: 20px;">
+            <select id="">
+                <option value="selectoption" disabled selected> Select Incident  </option>
+                <option value="Open - New Incident"> Open - New Incident </option>  
+                <option value="Login System Issues"> 1. Login System Issues </option>  
+                <option value="Website Down">  2. Website Down </option> 
+                <option value="Payment Issues"> 3. Payment Issues </option>  
+                <option value="	Broken Laptop"> 4. Broken Laptop </option>
+            </select>
+            <br>
+            <br>
+            <label><u> Incident - Assign / Remove Member </u></label>
+            <input id="checkboxmember" type="checkbox" onclick="showmember(event)" checked>
+            <br>
+            <br>
+            <select id="memberassign">
+                <option value="selectoptionaction" disabled selected> Select Option  </option>
+                <option value="Assign Member">Assign Member</option>  
+                <option value="Remove Member">Remove Member</option> 
+            </select>
+            <br>
+            <br>
+            <input type="text" id="incidentfname"  placeholder="First Name" >
+            <br>
+            <br>
+            <input type="text" id="incidentlname"  placeholder="Last Name" >
+            <br>
+            <br>
+            <input type="email" id="incidentemail" placeholder="@email.com" >
+            <br>
+            <br>
+            <input type="number" id="incidentphonenumber" placeholder="07######### - Phone Number" >
+            <br>
+            <br>
+            <input type="text" id="incidentnote" placeholder="Optional Note to Member" >
+            <br>
+            <br>
+            <button id="memberbutton" onclick="incidentreport()" > Assign Member to Selected Incident </button>
+            <br>
+            <br>
+            <br>
+            <label><u>Modify Existing Incidents -  </u></label>
+            <input id="checkbox" type="checkbox" onclick="show(event)">
+            <br>
+            <br>
+            <select id="selectincidentaction" hidden>
+                <option value="selectoptionaction" disabled selected> Select Option - Required  </option>
+                <option value="Update Incident"> Update Incident </option>  
+                <option value="Open a New Incident">Open a New Incident</option> 
+                <option value="Close an Incident"> Close an Incident </option>  
+            </select>
+            <br>
+            <select id="incidenttype"  hidden>             
+            <option value="Select Incident Type" disabled selected> Update Incident Type of Selected Incident - Optional </option>
+                <option value="Standard"> Standard </option>  
+                <option value="Major"> Major </option> 
+                <option value="Significant"> Significant </option>  
+            </select>  
+            <br>
+            <select id="configurationitem"  hidden>             
+            <option value="Assign Configuration Item" disabled selected> Assign Configuration Item - Optional </option>
+                <option value="Laptop 1"> Laptop 1 </option>  
+                <option value="Laptop 2"> Laptop 2 </option>  
+                <option value="Laptop 3"> Laptop 3 </option>  
+                <option value="Server 1"> Server 1 </option>  
+                <option value="Server 2"> Server 2 </option>  
+                <option value="Server 3"> Server 3 </option>  
+            </select>
+            <br>
+            <input id="executivesummary" type="text" placeholder="Update Executive Summary - Optional " hidden>
+            <br>
+            <input id="businessimpact" type="text" placeholder="Update Business Impact - Optional " hidden>
+            <br>
+            <textarea placeholder="Create a Log for the selected Incident - Required" rows="10" id="updateincident" hidden></textarea>
+            <br>
+            <button id="modifybutton" onclick="updateonincident()" hidden>Send out an Update on the Selected Incident</button>
+        </section>
+        </form>
+        </section>
+        <script>  
+           setIncidentPages();
+           function incidentreport() {
+                let incidentfname = document.getElementById("incidentfname").value;
+                let incidentlname = document.getElementById("incidentlname").value;
+                let incidentemail = document.getElementById("incidentemail").value;
+                let incidentphonenumber = document.getElementById("incidentphonenumber").value;
+                if (incidentfname == "" || incidentlname == "" || incidentemail == ""|| incidentphonenumber == ""){
+                    alert("Please fill all Required fields!");
+                    event.preventDefault()
+                }
+                else if (confirm ("Are you sure you would like to assign this member to the selected incident? (click cancel to modify existing details or to cancel the assign process.)") == false) {
+                    event.preventDefault()
+                }
+            }
+            function updateonincident(){
+                let selectincident = document.getElementById("selectincidentaction").value;
+                let updateincidentvar= document.getElementById("updateincident").value;
+                if (selectincident == "selectoptionaction"  ||  updateincidentvar == ""){
+                    alert ("Please fill all Required fields!");
+                    event.preventDefault()
+                }
+                else{
+                    alert("Update has been sent.")
+                }
+            }
+            function showmember(event){
+                    let checkboxmember = document.getElementById("checkboxmember");
+                    let incidentfname = document.getElementById("incidentfname");
+                    let incidentlname = document.getElementById("incidentlname");
+                    let incidentemail = document.getElementById("incidentemail");
+                    let incidentphonenumber = document.getElementById("incidentphonenumber");
+                    let incidentnote = document.getElementById("incidentnote");
+                    let memberbutton = document.getElementById("memberbutton");
+                    let memberassign = document.getElementById("memberassign");
+                    if (checkboxmember.checked){
+                        incidentfname.style.display = "block";
+                        incidentlname.style.display = "block";
+                        incidentemail.style.display = "block";
+                        incidentphonenumber.style.display = "block";
+                        incidentnote.style.display = "block";
+                        memberbutton.style.display = "block";
+                        memberassign.style.display = "block";
+                    }
+                    else {
+                        incidentfname.style.display = "none";
+                        incidentlname.style.display = "none";
+                        incidentemail.style.display = "none";
+                        incidentphonenumber.style.display = "none";
+                        incidentnote.style.display = "none";
+                        memberbutton.style.display = "none";
+                        memberassign.style.display = "none";
+                    }
+                }
+            
+            function show(event){
+                let checkbox = document.getElementById("checkbox");
+                let executivesummary = document.getElementById("executivesummary");
+                let businessimpact = document.getElementById("businessimpact");
+                let incidenttype = document.getElementById("incidenttype");
+                let configurationitem = document.getElementById("configurationitem");
+                let selectincidentaction = document.getElementById("selectincidentaction");
+                let updateincident = document.getElementById("updateincident");
+                let modifybutton = document.getElementById("modifybutton");
+                if (checkbox.checked) {
+                    executivesummary.style.display = "block";
+                    businessimpact.style.display = "block";
+                    incidenttype.style.display = "block";
+                    configurationitem.style.display = "block";
+                    selectincidentaction.style.display = "block";
+                    updateincident.style.display = "block";
+                    modifybutton.style.display = "block";
+                }
+                else {
+                    executivesummary.style.display = "none";
+                    businessimpact.style.display = "none";
+                    incidenttype.style.display = "none";
+                    configurationitem.style.display = "none";
+                    selectincidentaction.style.display = "none";
+                    updateincident.style.display = "none";
+                    modifybutton.style.display = "none";
+                }
+            } 
+            
+        </script>
+        <footer>
+            <p><i class="fa-solid fa-copyright"></i> All Rights Reserved </p>
+        </footer>
+    </body>
+</html>

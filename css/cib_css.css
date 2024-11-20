@@ -1,0 +1,165 @@
+* {
+  box-sizing: border-box;
+}
+
+
+header {
+    text-align: center;
+    background-color: #6096B4;
+    color: white;
+    padding: 15px 40px 25px 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+body {
+    margin: 0px;
+}
+
+
+.main {
+  float: left;
+  text-align: left;
+  color: #EEEEEE;
+  background-color: #31363F;
+  padding: 20px 60px 450px 40px;
+  width: 100%;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+a {
+    font-size: 21px;
+    text-decoration: none;
+    color: #BDCDF9;
+}
+
+
+a:hover {
+    color: white;
+}
+
+
+nav {
+    overflow: hidden;
+    background-color: #222831;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+nav a {
+    padding: 10px 16px;
+    text-align: center;
+    float: left;
+    font-size: 17px;
+}
+
+
+nav a:hover {
+    background-color: black;
+    color: aliceblue;
+}
+
+
+.navright {
+    float: right;
+    font: 60px;
+}
+
+
+.accessibility {
+    float: right;
+    font: 60px;
+}
+
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+footer {
+  background-color: #6096B4;
+  color: #EEEEEE;
+  text-align: center;
+  padding: 1px 40px 52px 40px;
+  font-size: 19px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+input[type=text]{
+  width: 20%;
+  padding: 12px;
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+  resize: vertical; 
+}
+
+
+input[type=email]{
+  width: 20%;
+  padding: 12px;
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+  resize: vertical; 
+}
+
+
+input[type=password]{
+  width: 20%;
+  padding: 12px;
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+  resize: vertical; 
+}
+
+
+input[type=number]{
+  width: 20%;
+  padding: 12px;
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+  resize: vertical; 
+}
+
+
+select {
+  width: 20%;
+  padding: 12px;
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+  resize: vertical;
+}
+
+
+textarea {
+  width: 100%;
+  padding: 30px;
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+  resize: vertical;
+}
+
+
+input[type=submit] {
+  float: right;
+  background-color: dodgerblue;
+  color: white;
+  padding: 12px;
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+  resize: vertical; 
+}
+
+
+button {
+  float: left;
+  background-color: dodgerblue;
+  color: white;
+  padding: 12px;
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+  resize: vertical; 
+}

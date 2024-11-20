@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">  
+    <head>
+        <link rel="stylesheet" href="../CSS/CIB_CSS.css">
+        <script src="https://kit.fontawesome.com/9065e3a5e6.js" crossorigin="anonymous"></script>
+        <link rel="icon" type="image/x-icon" href="../img/DWK_Logo_Circular.png">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="../js/accountHandling.js"></script>
+        <title> CIB - Group7 </title>
+               <style>
+                  body { 
+                    font: 14px/1.4;
+                    font-family: Arial, Helvetica, sans-serif;
+                  }
+
+                  /* 
+                  Generic Styling, for Desktops/Laptops 
+                  */
+                  table { 
+                    width: 100%; 
+                    border-collapse: collapse; 
+                  }
+                  /* Zebra striping */
+                  tr { 
+                    background: #FFFFFF; 
+                  }
+                  th { 
+                    background: #333; 
+                    color: white;
+                    font-weight: bold; 
+                    padding: 6px; 
+                    border: 1px solid #9B9B9B; 
+                    text-align: left; 
+                  }
+                  td { 
+                    padding: 6px; 
+                    border: 1px solid #9B9B9B; 
+                    text-align: left; 
+                    color: black;
+                  }
+                  @media 
+                  only screen and (max-width: 760px),
+                  (min-device-width: 768px) and (max-device-width: 1024px)  {
+                    table, thead, tbody, th, td, tr { display: block; }
+                    thead tr { position: absolute;top: -9999px;left: -9999px;}
+                    tr { border: 1px solid #9B9B9B; }
+                    td { border: none;border-bottom: 1px solid #9B9B9B; position: relative;padding-left: 50%; }
+
+                    td:before { position: absolute;top: 6px;left: 6px;width: 45%; padding-right: 10px; white-space: nowrap;}
+
+                    /*
+                    Label the data
+                    */
+                td:nth-of-type(1):before { content: "ID"; }
+                td:nth-of-type(2):before { content: "NAME"; }
+                td:nth-of-type(3):before { content: "INCIDENT_TYPE"; }
+                td:nth-of-type(4):before { content: "STATUS"; }
+                td:nth-of-type(5):before { content: "SEVERITY"; }
+                td:nth-of-type(6):before { content: "CREATED_AT"; }
+                td:nth-of-type(7):before { content: "SHORT_DESCRIPTION"; }
+                td:nth-of-type(8):before { content: "LONG_DESCRIPTION"; }
+                td:nth-of-type(9):before { content: "MITIGATION_STEPS"; }
+                  }
+
+                  /* Smartphones (portrait and landscape) ----------- */
+                  @media only screen
+                  and (min-device-width : 320px)
+                  and (max-device-width : 480px) {
+                    body { 
+                      padding: 0; 
+                      margin: 0; 
+                      width: 320px; }
+                    }
+
+                  /* iPads (portrait and landscape) ----------- */
+                  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+                    body { 
+                      width: 495px; 
+                    }
+                  }
+
+            </style>
+    </head>
+    
+    <body>
+        <header>
+            <img src="../img/DWK_Logo_Circular.png" style= "height:88px; width:100px; float: left;">
+            <h1> DWK - Incident Report System </h1>
+        </header>    
+        <nav>
+            <a href="cib_home.html"><i class="fa-solid fa-house"></i> &nbsp;  Home </a>
+            <a id= "incidentpage" href="#"> <i class="fa-solid fa-note-sticky"></i> &nbsp; Incidents Area </a>
+            <a href="cib_incidentsreported.html"> <i class="fa-solid fa-file"></i> &nbsp; Reported Incidents </a>
+            <a href="cib_chat.html"> <i class="fa-solid fa-comment"></i> &nbsp; Chat </a>
+            <section class="navright">
+                <a href="cib_signindetails.html" title= "Sign in Details"> <i class="fa-solid fa-user"></i> </a> 
+            </section>
+        </nav>
+        <section class="main" style="text-align: left; padding: 20px 60px 220px 40px;">
+            <section class= "accessibility" >
+                <a id="volume" onclick="accessibilityman()" href="" title= "Live Speech"><i class="fa-solid fa-volume-high"></i></a>
+                &emsp;
+                <a id="largetext" onclick="accessibilityman()" href="" title= "Larger Text"><i class="fa-solid fa-a"></i></a>
+                &nbsp;
+                &nbsp;
+            </section>
+            <h2>Incidents Area NIRT</h2>
+            <u><p id="1"></p></u>
+             <br>
+        <form style="font-size: 17px;">
+        <table><thead><tr>
+            <th>NAME</th>
+            <th>INCIDENT_TYPE</th>
+            <th>STATUS</th>
+            <th>SEVERITY</th>
+            <th>CREATED_AT</th>
+            <th>SHORT_DESCRIPTION</th>
+            <th>LONG_DESCRIPTION</th>
+            <th>MITIGATION_STEPS</th>
+        </tr></thead>
+        <tbody id="data">
+
+            <tr>
+        <td>Login System Issues</td>
+        <td>Technology Outage</td>
+        <td>Diagnose</td>
+        <td>Major</td>
+        <td>10-MAY-24</td>
+        <td>Some users are unable to log in</td>
+        <td>Some users are unable to log into their accounts, they are unable to access documents required to do their job.</td>
+        <td>&nbsp;</td>
+            </tr>
+        </tbody></table><!-- SQL:
+        select ID ID, NAME NAME, INCIDENT_TYPE INCIDENT_TYPE, STATUS STATUS, SEVERITY SEVERITY, CREATED_AT CREATED_AT, SHORT_DESCRIPTION SHORT_DESCRIPTION, LONG_DESCRIPTION LONG_DESCRIPTION, MITIGATION_STEPS MITIGATION_STEPS from (select * from "S5607012"."INCIDENTS")-->
+        <br>
+        <br>
+            <p><u>Update Incidents Mitigation Steps </u></p>
+            <select id="incidentname">
+                <option value="selectincident" disabled selected> Select Incident </option>
+                <option value="loginsystemissues"> Login System Issues</option>
+            </select>
+            <br>
+            <br>
+            <label for="incidentfname"> First Name: </label>
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &nbsp;
+            <label for="incidentlname"> Last Name: </label>
+            <br>
+            <input type="text" id="incidentfname" placeholder="First Name (Required)">
+            <input type="text" id="incidentlname" placeholder="Last Name (Required)">
+            <br>
+            <br>
+            <label for="email" > Email: </label>
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            &emsp;
+            <label for="phonenumber"> Phone Number: </label>
+            <br>
+            <input type="email" id="incidentemail" placeholder="@email.com (Required)">
+            <input type="number" id="incidentphonenumber" placeholder="Your Phone Number - 07######### (Required)">
+            <br>
+            <br>
+            <label for="incidentdetail">Update Incident Mitigation Steps: </label>
+            <textarea  id="incidentdetail" rows="10" cols="33" placeholder="Details of the Incident (Required)"></textarea>
+            <button onclick="incidentreport()"> Report Incident </button>
+        </form>
+        </section>
+        <script>
+            setIncidentPages();
+            function incidentreport() {
+                let incidentfname = document.getElementById("incidentfname").value;
+                let incidentlname = document.getElementById("incidentlname").value;
+                let incidentemail = document.getElementById("incidentemail").value;
+                let incidentphonenumber = document.getElementById("incidentphonenumber").value;
+                let incidentname = document.getElementById("incidentname").value;
+                if (incidentfname == "" || incidentlname == "" || incidentemail == ""|| incidentphonenumber == "" || incidentname == "selectincident"){
+                    alert("Please fill all Required fields!");
+                    event.preventDefault()
+                }
+                else if (confirm ("Are you sure you would like to Submit this Incident Report? (Press cancel to modify any existing data.)") == false) {
+                    event.preventDefault()
+                }
+            }
+            document.getElementById("1").textContent ="Assigned Incidents Overview for: " + sessionStorage.getItem("signuplname") +" "+ sessionStorage.getItem("signupdfname")
+        </script>
+        <footer>
+            <p><i class="fa-solid fa-copyright"></i> All Rights Reserved </p>
+        </footer>
+    </body>
+</html>

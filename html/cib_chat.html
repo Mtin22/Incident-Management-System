@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">  
+    <head>
+        <link rel="stylesheet" href="../CSS/CIB_CSS.css">
+        <script src="https://kit.fontawesome.com/9065e3a5e6.js" crossorigin="anonymous"></script>
+        <link rel="icon" type="image/x-icon" href="../img/DWK_Logo_Circular.png">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="../js/accountHandling.js"></script>
+        <title> CIB - Group7 </title>
+    </head>
+    
+    <body>
+        <header>
+            <img src="../img/DWK_Logo_Circular.png" style= "height:88px; width:100px; float: left;">
+            <h1> DWK - Incident Report System </h1>
+        </header>    
+        <nav>
+            <a href="cib_home.html"><i class="fa-solid fa-house"></i> &nbsp;  Home </a>
+            <a id="incidentpage" href="#"> <i class="fa-solid fa-note-sticky"></i> &nbsp; Incidents Area </a>
+            <a id= "" href="cib_incidentsreported.html"> <i class="fa-solid fa-file"></i> &nbsp; Reported Incidents </a>
+            <a id= "incidentpage" href="cib_chat.html"> <i class="fa-solid fa-comment"></i> &nbsp; Chat </a>
+            <section class="navright">
+                <a href="cib_signindetails.html" title= "Sign in Details"> <i class="fa-solid fa-user"></i> </a>
+            </section>
+        </nav>
+        <section class="main" style="text-align: left; padding: 20px 60px 320px 40px;">
+            <section class= "accessibility" >
+                <a id="volume" onclick="accessibilityman()" href="" title= "Live Speech"><i class="fa-solid fa-volume-high"></i></a>
+                &emsp;
+                <a id="largetext" onclick="accessibilityman()" href="" title= "Larger Text"><i class="fa-solid fa-a"></i></a>
+                &nbsp;
+                &nbsp;
+            </section>
+        <form onsubmit="sendmessage(event)">
+            <h2>Chat</h2>
+            <label for="chatinput">Initiate a chat with a staff member: </label>
+            <textarea  id="chatinput" rows="5" cols="33" placeholder="Initiate a chat with a staff member by typing or clicking the microphone"></textarea> 
+            <br>
+            <a href="" onclick="accessibilityman()" style="float: right;" title="Microphone"><i class="fa-solid fa-microphone"></i></a>
+            <br>
+            <br>
+            <br>
+            <textarea  id="response"  rows="7" cols="33" style="color: white;" placeholder="Response"  disabled></textarea>
+            <button> Send Message </button>
+            <br>
+            <br>
+            <br>
+            <br>
+            <a href="cib_chat_help.html" target="_blank">Help with Chat - Opens a new Tab</a>
+            <br>
+            <br>
+            <label for="logedmessages">Previously Sent Message </label>
+            <textarea  id="logedmessages" rows="3" cols="33" placeholder="Loged Message"></textarea> 
+        </form>
+        </section>
+        <script>
+             setIncidentPages();
+
+            function sendmessage(event){
+                let fname = sessionStorage.getItem("logedfname");
+                let lname = sessionStorage.getItem("logedlname");
+                let chatvalue = document.getElementById("chatinput").value;
+                let responsevalue = document.getElementById("response");
+                if (chatvalue == "Hello team, I am having issues while accessing the database.") {
+                    responsevalue.innerHTML = "Hello user, what issues are you having while accessing the database.";
+                }
+                else if (chatvalue == "After logging in to access the database, some of the files don’t open saying there’s error loading the file."){
+                    responsevalue.innerHTML = "Thank you for reporting the problem user. I’ll assign a team to fix the problem, and message you regarding any updates. Hello User 5, the assigned people have informed me the database issues have been resolved. Can you confirm that?";
+                    
+                }
+                else if (chatvalue == "Yes, the files are accessible now. Thank you for resolving the issue."){
+                    responsevalue.innerHTML = "Cool, have a nice day.";
+                }
+                else if (chatvalue == "Hello incident team, how are you getting along with resolving the issues."){
+                    responsevalue.innerHTML = "Hello MIM, we were having a bit of backlog because of the large number of incidents, and lack of staff members. But now the staff members are back, so we’re working on reducing the backlog.";
+                }
+                else if (chatvalue == "Thats fine Incident team, do give updates regarding the backlog."){
+                    responsevalue.innerHTML = "Make sure to keep an eye on your Incident Area for the latest updates.";
+                }
+                else if (chatvalue == "Hello Incident team, there seems to be issues with the payment transaction.") {
+                    responsevalue.innerHTML = "Hello user 5, what issues are you having regarding the payment transaction?";
+                }
+                else if (chatvalue == "There is a delay in the transaction between the company and the clients worth £1.5 million."){
+                    responsevalue.innerHTML = "Thanks for the reporting the issue user 5, I will assign a team to handle the payment delays. Look into the system for incident156 for any updates regarding this issue.";
+                }
+                else if (chatvalue == "Hello MIM, we are having issues regarding staff members for incident167."){
+                    responsevalue.innerHTML = "What is the staff issue you are having regarding incident167?";
+                }
+                else if (chatvalue == "The incident has escalated from a low level to a high level, and it requires more staff members to handle it.") {
+                    responsevalue.innerHTML = "Ok incident team. I will assign more staff members to work on resolving incident167.";
+                }
+                else if (chatvalue == "Thank you MIM, hope this will be speed up the process."){
+                    responsevalue.innerHTML = "Your welcome."
+                }
+                else {
+                    responsevalue.innerHTML = "Enter an available Message - Click on the Help with Chat link to see available messages."
+                }
+                sessionStorage.setItem("message",chatvalue);
+                let storedmessages = sessionStorage.getItem("message");
+                document.getElementById("logedmessages").textContent = storedmessages + "\n";
+            function chatclear(){
+                document.getElementById("chatinput").value = "";
+            }
+                event.preventDefault()
+                setTimeout(chatclear, 1500);
+            }
+
+        </script>
+        <footer>
+            <p><i class="fa-solid fa-copyright"></i> All Rights Reserved </p>
+        </footer>
+    </body>
+</html>
